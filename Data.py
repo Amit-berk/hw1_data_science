@@ -12,7 +12,7 @@ def load_data(path, features):
     df = pd.read_csv(path)
     data = df.to_dict(orient="list")
 
-    data["earnings"] = [math.log(earning, 10) for earning in data["earnings"]]
+    data["earnings"] = [math.log10(earning) for earning in data["earnings"]]
     data = dict(filter(lambda element: element[0] in features, data.items()))
 
     return data
