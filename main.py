@@ -37,7 +37,7 @@ def married_women_vs_unmarried(data):
     married_women_data, unmarried_women_data = filter_by_features(women_data, 'marital', {1, 2, 3})
     population_to_data = {'Married Women': married_women_data, 'Unmarried Women': unmarried_women_data}
 
-    statistic_functions = [Statistics.sum, Statistics.mean, Statistics.median]
+    statistic_functions = [Statistics.mean, Statistics.median]
 
     education_scopes = [(0, 10), (11, 20)]
 
