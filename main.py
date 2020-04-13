@@ -50,12 +50,8 @@ def married_women_vs_unmarried(data):
             Statistics.population_statistics(population, population_to_data[population], 'education', 'earnings',
                                              scope[0], scope[1], statistic_functions)
 
-    print()
-
 
 def main(argv):
-
-    print(sys.path)
 
     path = argv[1]
     features = argv[2]
