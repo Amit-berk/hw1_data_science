@@ -4,10 +4,10 @@ import math
 
 def load_data(path, features):
     """
-
+    returns a dictionary of data from file on path, with keys from features.
     :param path:
     :param features:
-    :return:
+    :return: data dictionary
     """
     df = pd.read_csv(path)
     data = df.to_dict(orient="list")
@@ -21,7 +21,8 @@ def load_data(path, features):
 def filter_by_features(data, feature, values):
     """
     returns two sets of data (represented by dictionaries) -
-    one with values corresponding to entries where feature get values in the values set
+    1. data set filtered by the feature parameter, by values in the values set.
+    2. Complimentary data set, containing all the entries where the selected feature value is not in the value set.
     :param data: original data set
     :param feature: feature according to which we want to filter the data
     :param values: set of desired values from feature
@@ -37,18 +38,18 @@ def filter_by_features(data, feature, values):
     return data_with_features, data_without_features
 
 
-def filter_values(data: list, selectors: list) -> list:
+def filter_values(data_column, selectors):
     """
-    filters elements from data returning only those that have a
+    filters elements from single data column, returning only those that have a
      corresponding element in selectors that evaluates to True.
-     (equivalent to itertools.compress)
+    e.g (['A,'B','C'],['False','True','True']) --> ['B','C']
 
-    :param data: list of values
+    :param data_column: list of values
     :param selectors: list of booleans
     :return: data filtered by selectors
     """
 
-    return [data for data, selectors in zip(data, selectors) if selectors]
+    return [value for value, selectors in zip(data_column, selectors) if selectors]
 
 
 def print_details(population, data, features, statistic_functions):
