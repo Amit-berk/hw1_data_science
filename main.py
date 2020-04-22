@@ -7,7 +7,7 @@ def men_vs_women(data):
     """
     print summary statistic divided by men, women and whole population
     :param data:
-    :return:
+    :return: None
     """
 
     print('Question 1:')
@@ -29,7 +29,7 @@ def married_women_vs_unmarried(data):
     """
     print summary statistics of  earnings by married women vs. unmarried women
     :param data:
-    :return:
+    :return: None
     """
 
     women_data = filter_by_features(data, 'female', {1})[0]
@@ -64,4 +64,3 @@ def main(argv):
 
 if __name__ == "__main__":
     main(sys.argv)
-

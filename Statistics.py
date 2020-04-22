@@ -1,5 +1,6 @@
 from Data import filter_values, print_details
 
+
 def sum(values):
     """
     :param values:
@@ -11,6 +12,7 @@ def sum(values):
         total += value
 
     return total
+
 
 def mean(values):
     """
@@ -29,6 +31,7 @@ def median(values):
     sorted_values = sorted(values)
     median_index = int(len(values) / 2)
 
+    # computation of the median depends on the parity of the sample size
     if len(values) % 2 == 1:
         return sorted_values[median_index]
 
@@ -47,6 +50,10 @@ def population_statistics(population, data, feature_1, feature_2, min_val, max_v
     :param statistics_functions:
     """
 
+    # creating a boolean list indicating if entry has values in the desired range of feature 1
     selectors = list(map(lambda val: min_val <= val <= max_val, data[feature_1]))
+
+    # filtering feature 2 entries by the selectors list
     filtered_feature_2 = {feature_2: filter_values(data[feature_2], selectors)}
+
     print_details(population, filtered_feature_2, [feature_2], statistics_functions)
