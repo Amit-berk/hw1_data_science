@@ -29,6 +29,8 @@ def filter_by_features(data, feature, values):
     :return: two sets of data (represented by dictionary) - one
     """
 
+    # we create a boolean list with the length of the data, indicating whether a line of data should be considered
+    # when filtering according to the values list in the feature column
     selectors = [value in values for value in data[feature]]
     complement_selectors = [not item for item in selectors]
 
@@ -40,7 +42,7 @@ def filter_by_features(data, feature, values):
 
 def filter_values(data_column, selectors):
     """
-    filters elements from single data column, returning only those that have a
+    filters elements from a single data column, returning only those that have a
      corresponding element in selectors that evaluates to True.
     e.g (['A,'B','C'],['False','True','True']) --> ['B','C']
 
